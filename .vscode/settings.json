@@ -1,0 +1,22 @@
+{
+  "Lua.diagnostics.globals": [
+    "_init",
+    "_update",
+    "_draw",
+    "spr",
+    "cls",
+    "rectfill",
+    "flr",
+    "rnd",
+    "add",
+    "pset",
+    "pget",
+    "btn"
+  ],
+  "Lua.runtime.unicodeName": true,
+  "Lua.diagnostics.disable": [
+    "inject-field",
+    "need-check-nil",
+    "undefined-field"
+  ]
+}
