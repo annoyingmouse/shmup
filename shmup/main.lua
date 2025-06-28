@@ -6,7 +6,7 @@ function _init()
   player = {
     x = 64,
     y = 64,
-    sprite = 2, -- 2 is the default sprite for the player
+    sprite = 16, -- 2 or 17 is the default sprite for the player
     speed = 2
   }
   bullets = {}
@@ -14,14 +14,14 @@ end
 
 function _update() -- 30 times a second
   -- Handle player movement
-  player.sprite = 2 -- Reset to default sprite
+  player.sprite = 17 -- Reset to default sprite
   if btn(0) then 
     player.x = player.x - player.speed 
-    player.sprite = 1 -- 1 is the left-facing sprite
+    player.sprite = 16 -- 1 is the left-facing sprite
   end
   if btn(1) then 
     player.x = player.x + player.speed
-    player.sprite = 3 -- 3 is the right-facing sprite
+    player.sprite = 18 -- 3 is the right-facing sprite
   end
   if btn(2) then 
     player.y = player.y - player.speed
