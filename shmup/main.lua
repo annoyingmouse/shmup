@@ -1,4 +1,5 @@
 local player = nil
+local bullets = nil
 
 function _init()
   cls(0)
@@ -49,6 +50,7 @@ function _update() -- 30 times a second
       sprite = 4, -- 4 is the bullet sprite
       speed = 4
     }
+    sfx(0) -- Reset the sprite to the default
     add(bullets, bullet)
   end  
   -- check boundaries

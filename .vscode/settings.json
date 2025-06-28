@@ -11,7 +11,9 @@
     "add",
     "pset",
     "pget",
-    "btn"
+    "btn",
+    "del",
+    "btnp"
   ],
   "Lua.runtime.unicodeName": true,
   "Lua.diagnostics.disable": [
