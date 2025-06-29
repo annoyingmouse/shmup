@@ -13,7 +13,8 @@
     "pget",
     "btn",
     "del",
-    "btnp"
+    "btnp",
+    "circfill"
   ],
   "Lua.runtime.unicodeName": true,
   "Lua.diagnostics.disable": [
