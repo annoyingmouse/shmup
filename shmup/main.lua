@@ -1,11 +1,11 @@
 local Player = nil
 local Bullets = nil
 local Stars = nil
-local mode = "start" -- Game mode, can be "game", "start", or "gameover"
+local mode = nil -- Game mode, can be "game", "start", or "gameover"
 
 function _init()
   cls(0) -- Clear the screen
-  mode = "gameover" -- Set the initial mode to start
+  mode = "start" -- Set the initial mode to start
 end
 
 function _update() -- 30 times a second

@@ -27,7 +27,7 @@ function Update_game() -- 30 times a second
       bullet.sprite = bullet.sprite + 0.1 -- Change the sprite to a different one when moving
     end
     -- Check if the bullet is off-screen
-    if bullet.y < 0 then
+    if bullet.y < -8 then
       del(Bullets, bullet) -- Remove the bullet if it goes off-screen
     end
   end
@@ -48,7 +48,7 @@ function Update_game() -- 30 times a second
     }
     sfx(0) -- Reset the sprite to the default
     add(Bullets, bullet)
-    Player.muzzle = 5
+    Player.muzzle = 6
   end  
   -- check boundaries
   if (Player.x < 8) then Player.x = 8 end

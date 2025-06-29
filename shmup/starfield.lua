@@ -14,10 +14,10 @@ end
 function Starfield(stars)
   for star in all(stars) do
     local star_colour = 6
-    if star.speed < 1.25 then
-      star_colour = 13 -- Dimmer colour for slower stars
-    elseif star.speed < 1 then
+    if star.speed < 1 then
       star_colour = 1 -- Much dimmer colour for slower stars
+    elseif star.speed < 1.25 then
+      star_colour = 13 -- Dimmer colour for slower stars
     end
     pset(star.x, star.y, star_colour)
     star.y = (star.y + star.speed) % 128 -- Move stars vertically
