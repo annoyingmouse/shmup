@@ -15,7 +15,8 @@
     "del",
     "btnp",
     "circfill",
-    "all"
+    "all",
+    "Bullets"
   ],
   "Lua.runtime.unicodeName": true,
   "Lua.diagnostics.disable": [
