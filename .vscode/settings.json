@@ -14,7 +14,8 @@
     "btn",
     "del",
     "btnp",
-    "circfill"
+    "circfill",
+    "all"
   ],
   "Lua.runtime.unicodeName": true,
   "Lua.diagnostics.disable": [

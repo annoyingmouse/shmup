@@ -1,5 +1,6 @@
 local player = nil
 local bullets = nil
+local stars = nil
 
 function _init()
   cls(0)
@@ -16,6 +17,7 @@ function _init()
     lives = 3
   }
   bullets = {}
+  stars = GenerateStarField(100) -- Generate the starfield
 end
 
 function _update() -- 30 times a second
@@ -79,6 +81,7 @@ end
 
 function _draw()
   cls(0)
+  Starfield(stars) -- Call the starfield function to draw stars
   spr(player.sprite, player.x - 8, player.y - 8)
   spr(player.jet.sprite, player.x - 8, player.y) -- Draw the player sprite
   -- Draw bullets
@@ -91,7 +94,7 @@ function _draw()
     circfill(player.x - 4, player.y - 10, player.muzzle, 7) -- Draw a circle around the player
   end
   --print("Score: " .. player.score, 8, 8, 7) -- Display the score at the top left corner
-  print("Score: " .. player.score, 40, 1, 12)
+  print("score: " .. player.score, 40, 1, 12)
   for i = 1, 4 do
     if player.lives >= i then
       spr(25, i * 9 - 8,  1) -- Draw the heart sprite
@@ -100,3 +103,4 @@ function _draw()
     end
   end
 end
+
