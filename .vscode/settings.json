@@ -16,7 +16,8 @@
     "btnp",
     "circfill",
     "all",
-    "Bullets"
+    "Bullets",
+    "sfx"
   ],
   "Lua.runtime.unicodeName": true,
   "Lua.diagnostics.disable": [
