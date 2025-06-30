@@ -47,7 +47,7 @@ function Update_game()
       Player.muzzle = 0
     end
   end
-  if btnp(5) then
+  if btn(5) and Player.countdown == 0 then
     local bullet = {
       x = Player.x,
       y = Player.y-10,
@@ -59,6 +59,13 @@ function Update_game()
     sfx(0)
     add(Bullets, bullet)
     Player.muzzle = 6
+    Player.countdown = 4
+  end
+  if Player.countdown > 0 then
+    Player.countdown = Player.countdown - 1
+    if Player.countdown <= 0 then
+      Player.countdown = 0
+    end
   end
   if (Player.x < 8 - 8) then
     Player.x = 8 - 8
@@ -77,9 +84,13 @@ function Update_game()
     Player.jet.y = Player.y + 8
   end
   for enemy in all(Enemies) do
-    if Collision(Player, enemy) then
+    if Collision(Player, enemy) and Player.invulnerable then
+      sfx(1)
       Player.lives = Player.lives - 1
+      Player.invulnerable = 60
       del(Enemies, enemy)
+    else
+      Player.invulnerable = Player.invulnerable - 1
     end
   end
   if Player.lives <= 0 then
@@ -89,15 +100,17 @@ function Update_game()
     for bullet in all(Bullets) do
       if Collision(enemy, bullet) then
         Player.score = Player.score + 10
-        del(Enemies, enemy)
-        del(Bullets, bullet)
-        add(Explosions, {
-          x = enemy.x,
-          y = enemy.y,
+        sfx(2)
+        local explosion = {
+          x = enemy.x - 4,
+          y = enemy.y - 4,
           width = 16,
           height = 16,
-          sprite = 40
-        })
+          sprite_index = 1
+        }
+        add(Explosions, explosion)
+        del(Enemies, enemy)
+        del(Bullets, bullet)
       end
     end
   end

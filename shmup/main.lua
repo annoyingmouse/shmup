@@ -4,12 +4,14 @@ Stars = nil
 Enemies = {}
 Mode = nil
 Explosions = {}
+T = 0
 
 function _init()
   Mode = "start"
 end
 
 function _update()
+  T = T + 1
   if Mode == "game" then
     Update_game()
   elseif Mode == "start" then

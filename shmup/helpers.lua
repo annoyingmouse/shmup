@@ -1,5 +1,6 @@
-local BlinkT = {5,5,5,5,5,5,5,5,5,5,5,6,6,7,7,6,6,5}
-local BlinkI = 1
+BlinkT = {5,5,5,5,5,5,5,5,5,5,5,6,6,7,7,6,6,5}
+BlinkI = 1
+Explosions_frames = {64, 64, 66, 66, 66, 68, 68, 70, 70, 72}
 
 function Blink()
   BlinkI = (BlinkI % #BlinkT) + 1

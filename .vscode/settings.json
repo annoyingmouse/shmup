@@ -17,7 +17,9 @@
     "circfill",
     "all",
     "Bullets",
-    "sfx"
+    "sfx",
+    "sin",
+    "tonum"
   ],
   "Lua.runtime.unicodeName": true,
   "Lua.diagnostics.disable": [

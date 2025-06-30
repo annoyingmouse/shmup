@@ -7,6 +7,8 @@ function Init_game()
     height = 8,
     speed = 2,
     muzzle = 0,
+    countdown = 6,
+    invulnerable = 0,
     jet = {
       x = 64 - 8,
       y = 64,
@@ -15,7 +17,7 @@ function Init_game()
       sprite = 19,
     },
     score = 0,
-    lives = 1
+    lives = 4
   }
   Bullets = {}
   Stars = GenerateStarField(100)
