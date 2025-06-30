@@ -1,16 +1,25 @@
 function Init_game()
   Player = {
-    x = 64,
-    y = 64,
-    sprite = 16, -- 2 or 17 is the default sprite for the player
+    x = 64 - 8,
+    y = 64 - 8,
+    sprite = 16,
     speed = 2,
-    muzzle = 0, -- Muzzle flash sprite
+    muzzle = 0,
     jet = {
-      sprite = 19, -- 19 is the jet sprite
+      x = 64 - 8,
+      y = 64,
+      sprite = 19,
     },
-    score = 0, -- Player's score
+    score = 0,
     lives = 3
   }
   Bullets = {}
-  Stars = GenerateStarField(100) -- Generate the starfield
+  Stars = GenerateStarField(100)
+  local enemy = {
+    x = 60 - 8,
+    y = 5 - 8,
+    sprite = 7,
+    speed = 1
+  }
+  add(Enemies, enemy)
 end

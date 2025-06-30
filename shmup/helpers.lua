@@ -5,3 +5,14 @@ function Blink()
   BlinkI = (BlinkI % #BlinkT) + 1
   return BlinkT[BlinkI]
 end
+
+function Draw_all_sprites(sprites)
+  for sprite in all(sprites) do
+    Draw_sprite(sprite)
+  end
+end
+
+function Draw_sprite(sprite)
+  spr(sprite.sprite, sprite.x, sprite.y)
+end
+
