@@ -52,7 +52,9 @@ function Update_game()
       x = Player.x,
       y = Player.y-10,
       sprite = 4,
-      speed = 4
+      speed = 4,
+      width = 8,
+      height = 8
     }
     sfx(0)
     add(Bullets, bullet)
@@ -73,5 +75,30 @@ function Update_game()
   if (Player.y > 128 - 8) then
     Player.y = 128 - 8
     Player.jet.y = Player.y + 8
+  end
+  for enemy in all(Enemies) do
+    if Collision(Player, enemy) then
+      Player.lives = Player.lives - 1
+      del(Enemies, enemy)
+    end
+  end
+  if Player.lives <= 0 then
+    Mode = "gameover"
+  end
+  for enemy in all(Enemies) do
+    for bullet in all(Bullets) do
+      if Collision(enemy, bullet) then
+        Player.score = Player.score + 10
+        del(Enemies, enemy)
+        del(Bullets, bullet)
+        add(Explosions, {
+          x = enemy.x,
+          y = enemy.y,
+          width = 16,
+          height = 16,
+          sprite = 40
+        })
+      end
+    end
   end
 end

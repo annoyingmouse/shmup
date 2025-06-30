@@ -3,21 +3,27 @@ function Init_game()
     x = 64 - 8,
     y = 64 - 8,
     sprite = 16,
+    width = 8,
+    height = 8,
     speed = 2,
     muzzle = 0,
     jet = {
       x = 64 - 8,
       y = 64,
+      width = 8,
+      height = 8,
       sprite = 19,
     },
     score = 0,
-    lives = 3
+    lives = 1
   }
   Bullets = {}
   Stars = GenerateStarField(100)
   local enemy = {
-    x = 60 - 8,
+    x = 56 - 8,
     y = 5 - 8,
+    width = 8,
+    height = 8,
     sprite = 7,
     speed = 1
   }

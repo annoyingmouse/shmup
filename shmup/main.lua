@@ -2,33 +2,34 @@ Player = nil
 Bullets = nil
 Stars = nil
 Enemies = {}
-local mode = nil
+Mode = nil
+Explosions = {}
 
 function _init()
-  mode = "start"
+  Mode = "start"
 end
 
 function _update()
-  if mode == "game" then
+  if Mode == "game" then
     Update_game()
-  elseif mode == "start" then
+  elseif Mode == "start" then
     if btnp(4) or btnp(5) then
-      mode = "game"
+      Mode = "game"
       Init_game()
     end
-  elseif mode == "gameover" then
+  elseif Mode == "gameover" then
     if btnp(4) or btnp(5) then
-      mode = "start"
+      Mode = "start"
     end
   end
 end
 
 function _draw()
-  if mode == "start" then
+  if Mode == "start" then
     Draw_start()
-  elseif mode == "gameover" then
+  elseif Mode == "gameover" then
     Draw_over()
-  elseif mode == "game" then
+  elseif Mode == "game" then
     Draw_game()
   end
 end

@@ -17,4 +17,11 @@ function Draw_game()
       spr(26, i * 9 - 8,  1)
     end
   end
+  for explosion in all(Explosions) do
+    spr(explosion.sprite, explosion.x, explosion.y)
+    explosion.sprite = explosion.sprite + 0.2
+    if explosion.sprite >= 48 then
+      del(Explosions, explosion)
+    end
+  end
 end

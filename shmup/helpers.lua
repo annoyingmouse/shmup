@@ -13,6 +13,18 @@ function Draw_all_sprites(sprites)
 end
 
 function Draw_sprite(sprite)
-  spr(sprite.sprite, sprite.x, sprite.y)
+  spr(
+    sprite.sprite,
+    sprite.x,
+    sprite.y,
+    flr(sprite.width / 8),
+    flr(sprite.height / 8)
+  )
 end
 
+function Collision(sprite1, sprite2)
+  return sprite1.x < sprite2.x + sprite2.width and
+         sprite1.x + sprite1.width > sprite2.x and
+         sprite1.y < sprite2.y + sprite2.height and
+         sprite1.y + sprite1.height > sprite2.y
+end
