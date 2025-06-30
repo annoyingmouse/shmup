@@ -29,3 +29,15 @@ function Collision(sprite1, sprite2)
          sprite1.y < sprite2.y + sprite2.height and
          sprite1.y + sprite1.height > sprite2.y
 end
+
+function Spawn_enemy()
+  local enemy = {
+    x = flr(rnd(120)),
+    y = -8,
+    width = 8,
+    height = 8,
+    sprite = 7,
+    speed = rnd(1) + 0.5 -- Random speed between 0.5 and 1.5
+  }
+  add(Enemies, enemy)
+end

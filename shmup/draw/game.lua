@@ -1,7 +1,7 @@
 function Draw_game()
   cls(0)
   Starfield(Stars)
-  if Player.invulnerable <= 0 then
+  if Player.invulnerable == 0 then
     Draw_sprite(Player)
     Draw_sprite(Player.jet)
   else
@@ -10,11 +10,8 @@ function Draw_game()
       Draw_sprite(Player.jet)
     end
   end
-  Draw_sprite(Player)
-  Draw_sprite(Player.jet)
   Draw_all_sprites(Enemies)
   Draw_all_sprites(Bullets)
-  spr(40, 64, 64, 2, 2)
   if Player.muzzle > 0 then
     circfill(Player.x + 3, Player.y - 2, Player.muzzle, 7)
     circfill(Player.x + 4, Player.y - 2, Player.muzzle, 7)

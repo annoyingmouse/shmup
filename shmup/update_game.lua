@@ -30,6 +30,7 @@ function Update_game()
     end
     if enemy.y > 128 + 8 then
       del(Enemies, enemy)
+      Spawn_enemy()
     end
   end
   for bullet in all(Bullets) do
@@ -83,14 +84,20 @@ function Update_game()
     Player.y = 128 - 8
     Player.jet.y = Player.y + 8
   end
-  for enemy in all(Enemies) do
-    if Collision(Player, enemy) and Player.invulnerable then
-      sfx(1)
-      Player.lives = Player.lives - 1
-      Player.invulnerable = 60
-      del(Enemies, enemy)
-    else
-      Player.invulnerable = Player.invulnerable - 1
+  if Player.invulnerable <= 0 then
+    for enemy in all(Enemies) do
+      if Collision(Player, enemy) then
+        sfx(1)
+        Player.lives = Player.lives - 1
+        Player.invulnerable = 60
+        del(Enemies, enemy)
+        Spawn_enemy()
+      end
+    end
+  else
+    Player.invulnerable = Player.invulnerable - 1
+    if Player.invulnerable <= 0 then
+      Player.invulnerable = 0
     end
   end
   if Player.lives <= 0 then
@@ -111,6 +118,7 @@ function Update_game()
         add(Explosions, explosion)
         del(Enemies, enemy)
         del(Bullets, bullet)
+        Spawn_enemy()
       end
     end
   end
