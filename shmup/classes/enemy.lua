@@ -1,6 +1,6 @@
 Enemy = {}
 
-function Enemy:new(x, speed)
+function Enemy:new(x, speed, lives)
   local obj = {
     x = x or 0,
     y = -8,
@@ -8,7 +8,9 @@ function Enemy:new(x, speed)
     width = 8,
     height = 8,
     sprite_index = 1,
-    sprites = {7, 8, 9, 10, 10}
+    lives = lives or 1,
+    sprites = { 7, 8, 9, 10, 10 },
+    flash = 0
   }
   setmetatable(obj, self)
   self.__index = self
@@ -30,6 +32,9 @@ end
 function Enemy:update()
   self:move()
   self:animate()
+  if self.flash > 0 then
+    self.flash = self.flash - 1
+  end
   if self.y > 128 then
     return false
   end
@@ -37,5 +42,11 @@ function Enemy:update()
 end
 
 function Enemy:draw()
+  if self.flash > 0 then
+    for i = 1, 15 do
+      pal(i, 7)
+    end
+  end
   spr(self.sprites[flr(self.sprite_index)], self.x, self.y, 1, 1)
+  pal()
 end

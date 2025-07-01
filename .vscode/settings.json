@@ -20,7 +20,8 @@
     "sfx",
     "sin",
     "tonum",
-    "Bullet"
+    "Bullet",
+    "pal"
   ],
   "Lua.runtime.unicodeName": true,
   "Lua.diagnostics.disable": [

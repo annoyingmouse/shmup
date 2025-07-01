@@ -6,9 +6,9 @@ function Blink()
   return BlinkT[BlinkI]
 end
 
-function Draw_all_classes(classes)
-  for class in all(classes) do
-    class:draw()
+function Invoke_draw_for_all(elements)
+  for element in all(elements) do
+    element:draw()
   end
 end
 

@@ -25,7 +25,7 @@ function Update_game()
   for enemy in all(Enemies) do
     if not enemy:update() then
       del(Enemies, enemy)
-      add(Enemies, Enemy:new(flr(rnd(120)), rnd(1) + 0.5))  
+      add(Enemies, Enemy:new(flr(rnd(120)), rnd(1) + 0.5, flr(rnd(3))+1))  
     end
   end
   for bullet in all(Bullets) do
@@ -79,7 +79,7 @@ function Update_game()
         Player.lives = Player.lives - 1
         Player.invulnerable = 60
         del(Enemies, enemy)
-        add(Enemies, Enemy:new(flr(rnd(120)), rnd(1) + 0.5))
+        add(Enemies, Enemy:new(flr(rnd(120)), rnd(1) + 0.5, flr(rnd(3))+1))
       end
     end
   else
@@ -94,12 +94,17 @@ function Update_game()
   for enemy in all(Enemies) do
     for bullet in all(Bullets) do
       if Collision(enemy, bullet) then
-        Player.score = Player.score + 10
-        sfx(2)
-        add(Explosions, Explosion:new(enemy.x - 4, enemy.y - 4))
-        del(Enemies, enemy)
+        if enemy.lives > 1 then
+          enemy.lives = enemy.lives - 1
+          enemy.flash = 5
+        else
+          Player.score = Player.score + 10
+          sfx(2)
+          add(Explosions, Explosion:new(enemy.x - 4, enemy.y - 4))
+          del(Enemies, enemy)
+          add(Enemies, Enemy:new(flr(rnd(120)), rnd(1) + 0.5, flr(rnd(3))+1))
+        end
         del(Bullets, bullet)
-        add(Enemies, Enemy:new(flr(rnd(120)), rnd(1) + 0.5))
       end
     end
   end

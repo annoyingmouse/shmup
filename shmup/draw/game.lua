@@ -10,13 +10,13 @@ function Draw_game()
       Draw_sprite(Player.jet)
     end
   end
-  Draw_all_classes(Enemies)
-  Draw_all_classes(Bullets)
+  Invoke_draw_for_all(Enemies)
+  Invoke_draw_for_all(Bullets)
   if Player.muzzle > 0 then
     circfill(Player.x + 3, Player.y - 2, Player.muzzle, 7)
     circfill(Player.x + 4, Player.y - 2, Player.muzzle, 7)
   end
-  Draw_all_classes(Explosions)
+  Invoke_draw_for_all(Explosions)
   print("score: " .. Player.score, 40, 1, 12)
   for i = 1, 4 do
     if Player.lives >= i then
