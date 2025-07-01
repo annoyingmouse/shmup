@@ -22,12 +22,5 @@ function Init_game()
   }
   Bullets = {}
   Stars = GenerateStarField(100)
-  Enemies = {{
-    x = flr(rnd(120)),
-    y = - 8,
-    width = 8,
-    height = 8,
-    sprite = 7,
-    speed = 1
-  }}
+  Enemies = { Enemy:new(flr(rnd(120)), rnd(1) + 0.5) }
 end

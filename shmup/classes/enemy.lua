@@ -1,39 +1,41 @@
-Bullet = {}
+Enemy = {}
 
-function Bullet:new(x, y)
+function Enemy:new(x, speed)
   local obj = {
     x = x or 0,
-    y = y or 0,
-    speed = 4,
+    y = -8,
+    speed = speed or 1,
     width = 8,
     height = 8,
     sprite_index = 1,
-    sprites = { 4, 5, 6 }
+    sprites = {7, 8, 9, 10, 10}
   }
   setmetatable(obj, self)
   self.__index = self
   return obj
 end
 
-function Bullet:move()
-  self.y = self.y - self.speed
+function Enemy:move()
+  self.y = self.y + self.speed
 end
 
-function Bullet:animate()
+function Enemy:animate()
   if self.sprite_index < #self.sprites then
-    self.sprite_index = self.sprite_index + 0.15
+    self.sprite_index = self.sprite_index + 0.1
+  else
+    self.sprite_index = 1
   end
 end
 
-function Bullet:update()
+function Enemy:update()
   self:move()
   self:animate()
-  if self.y < -8 then
+  if self.y > 128 then
     return false
   end
   return true
 end
 
-function Bullet:draw()
+function Enemy:draw()
   spr(self.sprites[flr(self.sprite_index)], self.x, self.y, 1, 1)
 end

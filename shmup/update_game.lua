@@ -23,19 +23,19 @@ function Update_game()
     Player.jet.y = Player.jet.y + Player.speed
   end
   for enemy in all(Enemies) do
-    enemy.y = enemy.y + enemy.speed
-    enemy.sprite = enemy.sprite + 0.2
-    if enemy.sprite >= 11 then
-      enemy.sprite = 7
-    end
-    if enemy.y > 128 + 8 then
+    if not enemy:update() then
       del(Enemies, enemy)
-      Spawn_enemy()
+      add(Enemies, Enemy:new(flr(rnd(120)), rnd(1) + 0.5))  
     end
   end
   for bullet in all(Bullets) do
     if not bullet:update() then
       del(Bullets, bullet)
+    end
+  end
+  for explosion in all(Explosions) do
+    if not explosion:update() then
+      del(Explosions, explosion)
     end
   end
   if Player.muzzle > 0 then
@@ -79,7 +79,7 @@ function Update_game()
         Player.lives = Player.lives - 1
         Player.invulnerable = 60
         del(Enemies, enemy)
-        Spawn_enemy()
+        add(Enemies, Enemy:new(flr(rnd(120)), rnd(1) + 0.5))
       end
     end
   else
@@ -96,17 +96,10 @@ function Update_game()
       if Collision(enemy, bullet) then
         Player.score = Player.score + 10
         sfx(2)
-        local explosion = {
-          x = enemy.x - 4,
-          y = enemy.y - 4,
-          width = 16,
-          height = 16,
-          sprite_index = 1
-        }
-        add(Explosions, explosion)
+        add(Explosions, Explosion:new(enemy.x - 4, enemy.y - 4))
         del(Enemies, enemy)
         del(Bullets, bullet)
-        Spawn_enemy()
+        add(Enemies, Enemy:new(flr(rnd(120)), rnd(1) + 0.5))
       end
     end
   end
