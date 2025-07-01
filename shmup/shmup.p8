@@ -9,6 +9,7 @@ __lua__
 #include update_game.lua
 #include starfield.lua
 #include helpers.lua
+#include classes/bullet.lua
 
 
 

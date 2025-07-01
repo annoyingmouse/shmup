@@ -19,7 +19,8 @@
     "Bullets",
     "sfx",
     "sin",
-    "tonum"
+    "tonum",
+    "Bullet"
   ],
   "Lua.runtime.unicodeName": true,
   "Lua.diagnostics.disable": [

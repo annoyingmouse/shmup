@@ -8,7 +8,7 @@ function Init_game()
     height = 8,
     speed = 2,
     muzzle = 0,
-    countdown = 6,
+    countdown = 4,
     invulnerable = 0,
     jet = {
       x = 64 - 8,
@@ -22,13 +22,12 @@ function Init_game()
   }
   Bullets = {}
   Stars = GenerateStarField(100)
-  Enemies = {}
-  add(Enemies, {
+  Enemies = {{
     x = flr(rnd(120)),
     y = - 8,
     width = 8,
     height = 8,
     sprite = 7,
     speed = 1
-  })
+  }}
 end

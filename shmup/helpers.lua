@@ -13,6 +13,12 @@ function Draw_all_sprites(sprites)
   end
 end
 
+function Draw_all_classes(sprites)
+  for sprite in all(sprites) do
+    sprite:draw()
+  end
+end
+
 function Draw_sprite(sprite)
   spr(
     sprite.sprite,

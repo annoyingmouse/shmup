@@ -11,7 +11,7 @@ function Draw_game()
     end
   end
   Draw_all_sprites(Enemies)
-  Draw_all_sprites(Bullets)
+  Draw_all_classes(Bullets)
   if Player.muzzle > 0 then
     circfill(Player.x + 3, Player.y - 2, Player.muzzle, 7)
     circfill(Player.x + 4, Player.y - 2, Player.muzzle, 7)

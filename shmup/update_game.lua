@@ -34,11 +34,7 @@ function Update_game()
     end
   end
   for bullet in all(Bullets) do
-    bullet.y = bullet.y - bullet.speed
-    if bullet.sprite < 6 then
-      bullet.sprite = bullet.sprite + 0.1
-    end
-    if bullet.y < -8 then
+    if not bullet:update() then
       del(Bullets, bullet)
     end
   end
@@ -49,16 +45,8 @@ function Update_game()
     end
   end
   if btn(5) and Player.countdown == 0 then
-    local bullet = {
-      x = Player.x,
-      y = Player.y-10,
-      sprite = 4,
-      speed = 4,
-      width = 8,
-      height = 8
-    }
     sfx(0)
-    add(Bullets, bullet)
+    add(Bullets, Bullet:new(Player.x, Player.y - 10))
     Player.muzzle = 6
     Player.countdown = 4
   end
