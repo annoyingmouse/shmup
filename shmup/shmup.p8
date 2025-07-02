@@ -9,7 +9,6 @@ __lua__
 #include update_game.lua
 #include starfield.lua
 #include helpers.lua
-#include classes/element.lua
 #include classes/bullet.lua
 #include classes/enemy.lua
 #include classes/explosion.lua
