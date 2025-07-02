@@ -21,7 +21,9 @@
     "sin",
     "tonum",
     "Bullet",
-    "pal"
+    "pal",
+    "max",
+    "min"
   ],
   "Lua.runtime.unicodeName": true,
   "Lua.diagnostics.disable": [
