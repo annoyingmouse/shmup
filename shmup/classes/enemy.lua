@@ -46,6 +46,14 @@ function Enemy:draw()
     for i = 1, 15 do
       pal(i, 7)
     end
+  else
+    if self.lives == 3 then
+      pal(3, 2)
+      pal(11, 8)
+    elseif self.lives == 2 then
+      pal(3, 1)
+      pal(11, 12)
+    end
   end
   spr(self.sprites[flr(self.sprite_index)], self.x, self.y, 1, 1)
   pal()

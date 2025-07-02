@@ -12,6 +12,7 @@ __lua__
 #include classes/bullet.lua
 #include classes/enemy.lua
 #include classes/explosion.lua
+#include classes/player.lua
 
 
 
