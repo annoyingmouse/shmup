@@ -21,7 +21,8 @@
     "tonum",
     "pal",
     "max",
-    "min"
+    "min",
+    "circ"
   ],
   "Lua.runtime.unicodeName": true,
   "Lua.diagnostics.disable": [
