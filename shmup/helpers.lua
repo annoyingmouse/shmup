@@ -12,6 +12,22 @@ function Invoke_draw_for_all(elements)
   end
 end
 
+function Create_particle_storm(element, player)
+  add(Particles, Particle:new(element.x + element.width / 2, element.y + element.height / 2, 0, 0, 10, 0, 0))
+  for i = 1, 30 do
+    add(Particles, Particle:new(
+      element.x + element.width / 2,
+      element.y + element.height / 2,
+      rnd() * 6 - 3,
+      rnd() * 6 - 3,
+      1 + rnd(2),
+      10 + rnd(10),
+      rnd(2),
+      player or false
+    ))
+  end
+end
+
 function Collision(sprite1, sprite2)
   if sprite1.x >= sprite2.x + sprite2.width then
     return false

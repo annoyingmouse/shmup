@@ -4,6 +4,7 @@ Stars = nil
 Enemies = {}
 Mode = nil
 Explosions = {}
+Particles = {}
 T = 0
 
 function _init()

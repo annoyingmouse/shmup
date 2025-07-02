@@ -4,7 +4,8 @@ function Draw_game()
   Player:draw()
   Invoke_draw_for_all(Enemies)
   Invoke_draw_for_all(Bullets)
-  Invoke_draw_for_all(Explosions)
+  -- Invoke_draw_for_all(Explosions)
+  Invoke_draw_for_all(Particles)
   print("score: " .. Player.score, 40, 1, 12)
   for i = 1, 4 do
     if Player.lives >= i then

@@ -11,19 +11,29 @@ function Update_game()
       del(Bullets, bullet)
     end
   end
-  for explosion in all(Explosions) do
-    if not explosion:update() then
-      del(Explosions, explosion)
+  for particle in all(Particles) do
+    if not particle:update() then
+      del(Particles, particle)
     end
   end
   if Player.invulnerable <= 0 then
     for enemy in all(Enemies) do
       if Collision(Player, enemy) then
+        Create_particle_storm(Player, true)
         sfx(1)
         Player.lives = Player.lives - 1
         Player.invulnerable = 60
-        del(Enemies, enemy)
-        add(Enemies, Enemy:new(flr(rnd(120)), rnd(1) + 0.5, flr(rnd(3))+1))
+        if enemy.lives > 1 then
+          enemy.lives = enemy.lives - 1
+          enemy.flash = 5
+        else
+          Player.score = Player.score + 10
+          sfx(2)
+          Create_particle_storm(enemy)
+          Player.score = Player.score + 10
+          del(Enemies, enemy)
+          add(Enemies, Enemy:new(flr(rnd(120)), rnd(1) + 0.5, flr(rnd(3))+1))
+        end
       end
     end
   else
@@ -44,7 +54,7 @@ function Update_game()
         else
           Player.score = Player.score + 10
           sfx(2)
-          add(Explosions, Explosion:new(enemy.x - 4, enemy.y - 4))
+          Create_particle_storm(enemy)
           del(Enemies, enemy)
           add(Enemies, Enemy:new(flr(rnd(120)), rnd(1) + 0.5, flr(rnd(3))+1))
         end
