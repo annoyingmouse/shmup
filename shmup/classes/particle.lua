@@ -1,5 +1,4 @@
 Particle = {}
-Particle.__index = Particle
 setmetatable(Particle, Expanding_effect)
 
 function Particle:new(x, y, vx, vy, lifetime, age, size, blue)
@@ -7,7 +6,8 @@ function Particle:new(x, y, vx, vy, lifetime, age, size, blue)
   obj.size = size or 1
   obj.colour = 7
   obj.blue = blue or false
-  setmetatable(obj, Particle)
+  self.__index = self
+  setmetatable(obj, self)
   return obj
 end
 
