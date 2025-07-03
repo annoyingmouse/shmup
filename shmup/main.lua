@@ -5,6 +5,8 @@ Enemies = {}
 Mode = nil
 Explosions = {}
 Particles = {}
+Shwaves = {}
+Sparkes = {}
 T = 0
 
 function _init()

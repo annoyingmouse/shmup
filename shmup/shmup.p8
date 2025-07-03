@@ -14,7 +14,8 @@ __lua__
 #include classes/explosion.lua
 #include classes/particle.lua
 #include classes/player.lua
-
+#include classes/shwave.lua
+#include classes/spark.lua
 
 
 __gfx__

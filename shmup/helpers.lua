@@ -14,16 +14,29 @@ end
 
 function Create_particle_storm(element, player)
   add(Particles, Particle:new(element.x + element.width / 2, element.y + element.height / 2, 0, 0, 10, 0, 0))
-  for i = 1, 30 do
+  for i = 1, 20 do
     add(Particles, Particle:new(
       element.x + element.width / 2,
       element.y + element.height / 2,
-      rnd() * 6 - 3,
-      rnd() * 6 - 3,
+      (rnd() - 0.5) * 10,
+      (rnd() - 0.5) * 10,
       1 + rnd(2),
       10 + rnd(10),
       rnd(2),
       player or false
+    ))
+  end
+end
+
+function Create_spark_storm(element)
+  for i = 1, 20 do
+    add(Sparkes, Spark:new(
+      element.x + element.width / 2,
+      element.y + element.height / 2,
+      (rnd() - 0.5) * 10,
+      (rnd() - 0.5) * 10,
+      10 + rnd(10),
+      1 + rnd(2)
     ))
   end
 end

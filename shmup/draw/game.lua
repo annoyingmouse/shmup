@@ -6,6 +6,8 @@ function Draw_game()
   Invoke_draw_for_all(Bullets)
   -- Invoke_draw_for_all(Explosions)
   Invoke_draw_for_all(Particles)
+  Invoke_draw_for_all(Shwaves)
+  Invoke_draw_for_all(Sparkes)
   print("score: " .. Player.score, 40, 1, 12)
   for i = 1, 4 do
     if Player.lives >= i then

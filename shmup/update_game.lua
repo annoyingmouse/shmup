@@ -3,7 +3,7 @@ function Update_game()
   for enemy in all(Enemies) do
     if not enemy:update() then
       del(Enemies, enemy)
-      add(Enemies, Enemy:new(flr(rnd(120)), rnd(1) + 0.5, flr(rnd(3))+1))  
+      add(Enemies, Enemy:new(flr(rnd(120)), rnd(1) + 0.5, flr(rnd(3))+1))
     end
   end
   for bullet in all(Bullets) do
@@ -14,6 +14,16 @@ function Update_game()
   for particle in all(Particles) do
     if not particle:update() then
       del(Particles, particle)
+    end
+  end
+  for shwave in all(Shwaves) do
+    if not shwave:update() then
+      del(Shwaves, shwave)
+    end
+  end
+  for spark in all(Sparkes) do
+    if not spark:update() then
+      del(Sparkes, spark)
     end
   end
   if Player.invulnerable <= 0 then
@@ -29,7 +39,7 @@ function Update_game()
         else
           Player.score = Player.score + 10
           sfx(2)
-          Create_particle_storm(enemy)
+          Create_particle_storm(enemy, false)
           Player.score = Player.score + 10
           del(Enemies, enemy)
           add(Enemies, Enemy:new(flr(rnd(120)), rnd(1) + 0.5, flr(rnd(3))+1))
@@ -51,10 +61,21 @@ function Update_game()
         if enemy.lives > 1 then
           enemy.lives = enemy.lives - 1
           enemy.flash = 5
+          add(Shwaves, Shwave.new(bullet.x + 4, bullet.y + 4))
+          add(Sparkes, Spark:new(
+            enemy.x + enemy.width / 2,
+            enemy.y + enemy.height / 2,
+            (rnd() - 0.5) * 8,
+            (rnd() - 1) * 3,
+            10 + rnd(10),
+            1 + rnd(2)
+          ))
         else
           Player.score = Player.score + 10
           sfx(2)
-          Create_particle_storm(enemy)
+          Create_particle_storm(enemy, false)
+          Create_spark_storm(enemy)
+          add(Shwaves, Shwave.new(enemy.x + 4, enemy.y + 4, 25, 3.5, 7))
           del(Enemies, enemy)
           add(Enemies, Enemy:new(flr(rnd(120)), rnd(1) + 0.5, flr(rnd(3))+1))
         end
