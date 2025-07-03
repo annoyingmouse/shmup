@@ -1,20 +1,14 @@
 Particle = {}
+Particle.__index = Particle
+setmetatable(Particle, Expanding_effect)
 
-function Particle:new(x, y, vx, vy, size, lifetime, age, blue)
-  local obj = {
-    x = x,
-    y = y,
-    vx = vx,
-    vy = vy,
-    size = size or 2, -- Default size
-    lifetime = lifetime or 30, -- Default lifetime of 30 frames
-    colour = 7, -- Default color
-    age = age or 0,
-    blue = blue or false -- Flag to indicate if the particle is from the player, defaults to false
-  }
-  setmetatable(obj, self)
-  self.__index = self
-  return obj
+function Particle:new(x, y, vx, vy, lifetime, age, size, blue)
+  local instance = Expanding_effect:new(x, y, vx, vy, lifetime, age)
+  instance.size = size or 1
+  instance.colour = 7
+  instance.blue = blue or false
+  setmetatable(instance, Particle)
+  return instance
 end
 
 function Particle:set_colour(blue)

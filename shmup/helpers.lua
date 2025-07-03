@@ -12,17 +12,19 @@ function Invoke_draw_for_all(elements)
   end
 end
 
+-- x, y, vx, vy, size, lifetime, age, blue - old Particle
+-- x, y, vx, vy, lifetime, age, size, blue - new Particle
 function Create_particle_storm(element, player)
-  add(Particles, Particle:new(element.x + element.width / 2, element.y + element.height / 2, 0, 0, 10, 0, 0))
+  add(Particles, Particle:new(element.x + element.width / 2, element.y + element.height / 2, 0, 0, 0, 0, 10))
   for i = 1, 20 do
     add(Particles, Particle:new(
       element.x + element.width / 2,
       element.y + element.height / 2,
       (rnd() - 0.5) * 10,
       (rnd() - 0.5) * 10,
-      1 + rnd(2),
       10 + rnd(10),
       rnd(2),
+      1 + rnd(2),
       player or false
     ))
   end
