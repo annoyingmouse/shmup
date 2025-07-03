@@ -1,16 +1,17 @@
 Expanding_effect = {}
-Expanding_effect.__index = Expanding_effect
 
 function Expanding_effect:new(x, y, vx, vy, lifetime, age)
-  local instance = {}
-  setmetatable(instance, Expanding_effect)
-  instance.x = x
-  instance.y = y
-  instance.vx = vx
-  instance.vy = vy
-  instance.lifetime = lifetime or 30 -- Default lifetime
-  instance.age = age or 0 -- Default age
-  return instance
+  local obj = {
+    x = x,
+    y = y,
+    vx = vx,
+    vy = vy,
+    lifetime = lifetime or 30, -- Default lifetime
+    age = age or 0, -- Default age
+  }
+  setmetatable(obj, Expanding_effect)
+  self.__index = self
+  return obj
 end
 
 function Expanding_effect:update()

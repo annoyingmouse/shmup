@@ -3,12 +3,12 @@ Particle.__index = Particle
 setmetatable(Particle, Expanding_effect)
 
 function Particle:new(x, y, vx, vy, lifetime, age, size, blue)
-  local instance = Expanding_effect:new(x, y, vx, vy, lifetime, age)
-  instance.size = size or 1
-  instance.colour = 7
-  instance.blue = blue or false
-  setmetatable(instance, Particle)
-  return instance
+  local obj = Expanding_effect:new(x, y, vx, vy, lifetime, age)
+  obj.size = size or 1
+  obj.colour = 7
+  obj.blue = blue or false
+  setmetatable(obj, Particle)
+  return obj
 end
 
 function Particle:set_colour(blue)
