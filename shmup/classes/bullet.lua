@@ -1,15 +1,13 @@
 Bullet = {}
+setmetatable(Bullet, Coordinates)
 
 function Bullet:new(x, y)
-  local obj = {
-    x = x or 0,
-    y = y or 0,
-    speed = 4,
-    width = 8,
-    height = 8,
-    sprite_index = 1,
-    sprites = { 4, 5, 6 }
-  }
+  local obj = Coordinates:new(x, y)
+  obj.speed = 4
+  obj.width = 8
+  obj.height = 8
+  obj.sprite_index = 1
+  obj.sprites = { 4, 5, 6 }
   setmetatable(obj, self)
   self.__index = self
   return obj

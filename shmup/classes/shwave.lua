@@ -1,15 +1,15 @@
 Shwave = {}
-Shwave.__index = Shwave
+setmetatable(Shwave, Coordinates)
 
-function Shwave.new(x, y, target_radius, speed, colour)
-  local self = setmetatable({}, Shwave)
-  self.x = x
-  self.y = y
-  self.radius = 3
-  self.colour = colour or 9
-  self.target_radius = target_radius or 6
-  self.speed = speed or 1
-  return self
+function Shwave:new(x, y, target_radius, speed, colour)
+  local obj = Coordinates:new(x, y)
+  obj.radius = 3
+  obj.colour = colour or 9
+  obj.target_radius = target_radius or 6
+  obj.speed = speed or 1
+  setmetatable(obj, self)
+  self.__index = self
+  return obj
 end
 
 function Shwave:update()

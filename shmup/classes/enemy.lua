@@ -1,17 +1,15 @@
 Enemy = {}
+setmetatable(Enemy, Coordinates)
 
 function Enemy:new(x, speed, lives)
-  local obj = {
-    x = x or 0,
-    y = -8,
-    speed = speed or 1,
-    width = 8,
-    height = 8,
-    sprite_index = 1,
-    lives = lives or 1,
-    sprites = { 7, 8, 9, 10, 10 },
-    flash = 0
-  }
+  local obj = Coordinates:new(x, -8)
+  obj.speed = speed or 1
+  obj.width = 8
+  obj.height = 8
+  obj.sprite_index = 1
+  obj.lives = lives or 1
+  obj.sprites = { 7, 8, 9, 10, 10 }
+  obj.flash = 0
   setmetatable(obj, self)
   self.__index = self
   return obj

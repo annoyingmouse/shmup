@@ -1,14 +1,12 @@
 Expanding_effect = {}
+setmetatable(Expanding_effect, Coordinates)
 
 function Expanding_effect:new(x, y, vx, vy, lifetime, age)
-  local obj = {
-    x = x,
-    y = y,
-    vx = vx,
-    vy = vy,
-    lifetime = lifetime or 30, -- Default lifetime
-    age = age or 0, -- Default age
-  }
+  local obj = Coordinates:new(x, y)
+  obj.vx = vx
+  obj.vy = vy
+  obj.lifetime = lifetime or 30 -- Default lifetime
+  obj.age = age or 0 -- Default age
   setmetatable(obj, Expanding_effect)
   self.__index = self
   return obj

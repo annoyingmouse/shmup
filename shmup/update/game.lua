@@ -61,7 +61,7 @@ function Update_game()
         if enemy.lives > 1 then
           enemy.lives = enemy.lives - 1
           enemy.flash = 5
-          add(Shwaves, Shwave.new(bullet.x + 4, bullet.y + 4))
+          add(Shwaves, Shwave:new(bullet.x + 4, bullet.y + 4))
           add(Sparkes, Spark:new(
             enemy.x + enemy.width / 2,
             enemy.y + enemy.height / 2,
@@ -75,7 +75,7 @@ function Update_game()
           sfx(2)
           Create_particle_storm(enemy, false)
           Create_spark_storm(enemy)
-          add(Shwaves, Shwave.new(enemy.x + 4, enemy.y + 4, 25, 3.5, 7))
+          add(Shwaves, Shwave:new(enemy.x + 4, enemy.y + 4, 25, 3.5, 7))
           del(Enemies, enemy)
           add(Enemies, Enemy:new(flr(rnd(120)), rnd(1) + 0.5, flr(rnd(3))+1))
         end

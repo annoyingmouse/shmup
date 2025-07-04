@@ -22,6 +22,8 @@ function _update()
       Mode = "game"
       Init_game()
     end
+  elseif Mode == "wavetext" then
+    Update_wavetext()
   elseif Mode == "gameover" then
     if btnp(4) or btnp(5) then
       Mode = "start"
@@ -32,6 +34,8 @@ end
 function _draw()
   if Mode == "start" then
     Draw_start()
+  elseif Mode == "tavetext" then
+    Draw_wavetext()
   elseif Mode == "gameover" then
     Draw_over()
   elseif Mode == "game" then

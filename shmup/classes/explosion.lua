@@ -1,12 +1,10 @@
 Explosion = {}
+setmetatable(Explosion, Coordinates)
 
 function Explosion:new(x, y)
-  local obj = {
-    x = x or 0,
-    y = y or 0,
-    sprite_index = 1,
-    sprites = {64, 64, 66, 66, 66, 68, 68, 70, 70, 72}
-  }
+  local obj = Coordinates:new(x, y)
+  obj.sprite_index = 1
+  obj.sprites = {64, 64, 66, 66, 66, 68, 68, 70, 70, 72}
   setmetatable(obj, self)
   self.__index = self
   return obj

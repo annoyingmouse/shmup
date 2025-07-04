@@ -6,8 +6,8 @@ function Particle:new(x, y, vx, vy, lifetime, age, size, blue)
   obj.size = size or 1
   obj.colour = 7
   obj.blue = blue or false
-  self.__index = self
   setmetatable(obj, self)
+  self.__index = self
   return obj
 end
 

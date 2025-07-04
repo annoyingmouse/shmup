@@ -1,28 +1,24 @@
 Player = {}
+setmetatable(Player, Coordinates)
 
 function Player:new()
-  local obj = {
-    x = 64 - 8,
-    y = 64 - 8,
-    sprite_index = 2,
-    sprites = {16, 17, 18},
-    width = 8,
-    height = 8,
-    speed = 2,
-    muzzle = 0,
-    countdown = 4,
-    invulnerable = 0,
-    jet = {
-      x = 64 - 8,
-      y = 64,
-      width = 8,
-      height = 8,
-      sprite_index = 1,
-      sprites = {19, 20, 21, 22, 23},
-    },
-    score = 0,
-    lives = 4
-  }
+  local obj = Coordinates:new(64 - 8, 64 - 8)
+  obj.sprite_index = 2
+  obj.sprites = {16, 17, 18}
+  obj.width = 8
+  obj.height = 8
+  obj.speed = 2
+  obj.muzzle = 0
+  obj.countdown = 4
+  obj.invulnerable = 0
+  obj.jet = Coordinates:new(64 - 8, 64)
+    obj.jet.width = 8
+    obj.jet.height = 8
+    obj.jet.sprite_index = 1
+    obj.jet.sprites = {19, 20, 21, 22, 23}
+  obj.score = 0
+  obj.lives = 4
+  obj.wave = 1
   setmetatable(obj, self)
   self.__index = self
   return obj

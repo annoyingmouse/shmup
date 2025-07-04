@@ -5,10 +5,13 @@ __lua__
 #include draw/start.lua
 #include draw/game.lua
 #include draw/over.lua
+#include draw/wavetext.lua
 #include init_game.lua
-#include update_game.lua
+#include update/game.lua
+#include update/wavetext.lua
 #include starfield.lua
 #include helpers.lua
+#include classes/coordinates.lua
 #include classes/expanding_effect.lua
 #include classes/bullet.lua
 #include classes/enemy.lua

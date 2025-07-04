@@ -4,8 +4,8 @@ setmetatable(Spark, Expanding_effect)
 function Spark:new(x, y, vx, vy, lifetime, age, colour)
   local obj = Expanding_effect:new(x, y, vx, vy, lifetime, age)
   obj.colour = colour or 7
-  self.__index = self
   setmetatable(obj, self)
+  self.__index = self
   return obj
 end
 
