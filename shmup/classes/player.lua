@@ -19,6 +19,8 @@ function Player:new()
   obj.score = 0
   obj.lives = 4
   obj.wave = 1
+  obj.wave_timer = 80
+  obj.missed_shots = 0
   setmetatable(obj, self)
   self.__index = self
   return obj

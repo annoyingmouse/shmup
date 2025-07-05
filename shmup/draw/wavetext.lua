@@ -1,21 +1,11 @@
 function Draw_wavetext()
-  cls(0)
-
-  -- Draw the wave text
-  local wave_text = "Wave: " .. Player.wave
-  local x = (128 - #wave_text * 4) / 2
-  local y = 64
-  print(wave_text, x, y, 12)
-
-  -- Draw the player score
-  print("Score: " .. Player.score, 40, 1, 12)
-
-  -- Draw player lives
-  for i = 1, 4 do
-    if Player.lives >= i then
-      spr(25, i * 9 - 8, 1)
-    else
-      spr(26, i * 9 - 8, 1)
-    end
+  Draw_game()
+  Printc("wave " .. Player.wave, 40, Blink())
+  if Player.wave_timer > 0 then
+    Player.wave_timer = Player.wave_timer - 1
+  end
+  if Player.wave_timer == 0 then
+    Mode = "game"
+    Enemies = { Enemy:new(flr(rnd(120)), rnd(1) + 0.5, 3) }
   end
 end

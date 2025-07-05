@@ -56,3 +56,28 @@ function Collision(sprite1, sprite2)
   end
   return true
 end
+
+-- centered printing
+
+-- width of a printed string
+function Printw(s)
+  if #s == 0 then
+    return 0
+  end
+
+  local width = 0
+  for i = 1, #s do
+    if sub(s,i,i) >= "\x80" then
+      width = width + 7
+    else 
+      width = width + 3
+    end
+  end
+
+  return width + #s - 1
+end
+
+-- print centered
+function Printc(s, y, colour)
+  print(s, 64 - Printw(s)/2, y, colour or 7)
+end

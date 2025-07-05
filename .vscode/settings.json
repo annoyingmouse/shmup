@@ -22,7 +22,8 @@
     "pal",
     "max",
     "min",
-    "circ"
+    "circ",
+    "sub"
   ],
   "Lua.runtime.unicodeName": true,
   "Lua.diagnostics.disable": [

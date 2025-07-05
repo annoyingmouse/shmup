@@ -7,6 +7,7 @@ Explosions = {}
 Particles = {}
 Shwaves = {}
 Sparkes = {}
+Button_released = false
 T = 0
 
 function _init()
@@ -18,27 +19,26 @@ function _update()
   if Mode == "game" then
     Update_game()
   elseif Mode == "start" then
-    if btnp(4) or btnp(5) then
-      Mode = "game"
-      Init_game()
-    end
+    Update_start()
   elseif Mode == "wavetext" then
-    Update_wavetext()
+    Update_game()
+  elseif Mode == "win" then
+    Update_win()
   elseif Mode == "gameover" then
-    if btnp(4) or btnp(5) then
-      Mode = "start"
-    end
+    Update_over()
   end
 end
 
 function _draw()
-  if Mode == "start" then
+  if Mode == "game" then
+    Draw_game()
+  elseif Mode == "start" then
     Draw_start()
-  elseif Mode == "tavetext" then
+  elseif Mode == "wavetext" then
     Draw_wavetext()
+  elseif Mode == "win" then
+    Draw_win()
   elseif Mode == "gameover" then
     Draw_over()
-  elseif Mode == "game" then
-    Draw_game()
   end
 end

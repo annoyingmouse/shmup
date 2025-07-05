@@ -6,9 +6,11 @@ __lua__
 #include draw/game.lua
 #include draw/over.lua
 #include draw/wavetext.lua
-#include init_game.lua
+#include draw/win.lua
+#include init/wavetext.lua
 #include update/game.lua
 #include update/wavetext.lua
+#include update/win.lua
 #include starfield.lua
 #include helpers.lua
 #include classes/coordinates.lua
