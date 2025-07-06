@@ -56,6 +56,8 @@ function Update_game()
   end
   if Player.lives <= 0 then
     Mode = "gameover"
+    music(6)
+    return
   end
   for enemy in all(Enemies) do
     for bullet in all(Bullets) do
@@ -82,8 +84,13 @@ function Update_game()
           del(Enemies, enemy)
           if #Enemies == 0 then
             Player.wave = Player.wave + 1
-            Player.wave_timer = 80
-            Mode = "wavetext"
+            if Player.wave > 4 then
+              Mode = "win"
+            else
+              Player.wave_timer = 80
+              Mode = "wavetext"
+            end
+            
             -- add(Enemies, Enemy:new(flr(rnd(120)), rnd(1) + 0.5, 3))
           end
         end

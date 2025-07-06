@@ -12,6 +12,7 @@ T = 0
 
 function _init()
   Mode = "start"
+  music(1)
 end
 
 function _update()
