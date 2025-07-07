@@ -83,10 +83,12 @@ function Printc(s, y, colour)
 end
 
 function Spawn_enemy()
-  if Player.wave == 1 then
-    add(Enemies, Enemy:new(flr(rnd(120)), rnd(1) + 0.5, 3))
-  elseif Player.wave == 2 then
+  if Player.wave == 2 then
     add(Enemies, Enemy_001:new(flr(rnd(120)), rnd(1) + 0.5, 3))
+  elseif Player.wave == 3 then
+    add(Enemies, Enemy_002:new(flr(rnd(120)), rnd(1) + 0.5, 3))
+  elseif Player.wave == 4 then
+    add(Enemies, Enemy_003:new(flr(rnd(120)), rnd(1) + 0.5, 3))
   else
     add(Enemies, Enemy:new(flr(rnd(120)), rnd(1) + 0.5, 3))
   end

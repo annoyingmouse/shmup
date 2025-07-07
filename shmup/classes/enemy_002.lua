@@ -10,12 +10,12 @@
 ]]--
 
 
-Enemy_001 = {}
-setmetatable(Enemy_001, Enemy)
+Enemy_002 = {}
+setmetatable(Enemy_002, Enemy)
 
-function Enemy_001:new(x, speed, lives)
+function Enemy_002:new(x, speed, lives)
   local obj = Enemy:new(x, speed, lives)
-  obj.sprites = { 164, 164, 165, 165 }
+  obj.sprites = { 168, 169, 170, 181 }
   setmetatable(obj, self)
   self.__index = self
   return obj
