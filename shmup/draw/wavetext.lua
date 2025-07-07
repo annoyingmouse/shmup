@@ -6,6 +6,6 @@ function Draw_wavetext()
   end
   if Player.wave_timer == 0 then
     Mode = "game"
-    Enemies = { Enemy:new(flr(rnd(120)), rnd(1) + 0.5, 3) }
+    Spawn_enemy()
   end
 end

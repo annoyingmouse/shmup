@@ -5,5 +5,7 @@ function Update_over()
   if Button_released and (btnp(4) or btnp(5)) then
     Button_released = false
     Mode = "start"
+    music(1)
+    return
   end
 end

@@ -53,6 +53,12 @@ function Enemy:draw()
       pal(11, 12)
     end
   end
-  spr(self.sprites[flr(self.sprite_index)], self.x, self.y, 1, 1)
+  spr(
+    self.sprites[flr(self.sprite_index)],
+    self.x,
+    self.y,
+    flr(self.width / 8),
+    flr(self.width / 8)
+  )
   pal()
 end

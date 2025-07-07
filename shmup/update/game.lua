@@ -3,7 +3,7 @@ function Update_game()
   for enemy in all(Enemies) do
     if not enemy:update() then
       del(Enemies, enemy)
-      add(Enemies, Enemy:new(flr(rnd(120)), rnd(1) + 0.5, flr(rnd(3))+1))
+      Spawn_enemy()
     end
   end
   for bullet in all(Bullets) do
@@ -44,7 +44,7 @@ function Update_game()
           Create_particle_storm(enemy, false)
           Player.score = Player.score + 10
           del(Enemies, enemy)
-          add(Enemies, Enemy:new(flr(rnd(120)), rnd(1) + 0.5, flr(rnd(3))+1))
+          Spawn_enemy()
         end
       end
     end

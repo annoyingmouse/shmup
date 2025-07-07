@@ -11,11 +11,7 @@ function Player:new()
   obj.muzzle = 0
   obj.countdown = 4
   obj.invulnerable = 0
-  obj.jet = Coordinates:new(64 - 8, 64)
-    obj.jet.width = 8
-    obj.jet.height = 8
-    obj.jet.sprite_index = 1
-    obj.jet.sprites = {19, 20, 21, 22, 23}
+  obj.jet = Jet:new(64 - 8, 64)
   obj.score = 0
   obj.lives = 4
   obj.wave = 1
@@ -71,6 +67,7 @@ function Player:update()
       self.countdown = 0
     end
   end
+  Player.jet:update()
 end
 
 function Player:shoot()
@@ -85,7 +82,7 @@ end
 function Player:draw()
   if self.invulnerable == 0 or sin(T / 5) < 0.1 then
     spr(self.sprites[self.sprite_index], self.x, self.y, flr(self.width / 8), flr(self.height / 8))
-    spr(self.jet.sprites[flr(self.jet.sprite_index)], self.jet.x, self.jet.y, flr(self.jet.width / 8), flr(self.jet.height / 8))
+    Player.jet:draw()
   end
   if self.muzzle > 0 then
     circfill(self.x + 3, self.y - 2, self.muzzle, 7)

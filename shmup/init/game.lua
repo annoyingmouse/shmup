@@ -8,5 +8,5 @@ function Init_game()
   Shwaves = {}
   Sparkes = {}
   Stars = GenerateStarField(100)
-  Enemies = { Enemy:new(flr(rnd(120)), rnd(1) + 0.5, 3) }
+  Spawn_enemy()
 end

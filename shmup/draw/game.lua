@@ -1,7 +1,9 @@
 function Draw_game()
   cls(0)
   Starfield(Stars)
-  Player:draw()
+  if Player.lives > 0 then
+    Player:draw()
+  end
   Invoke_draw_for_all(Enemies)
   Invoke_draw_for_all(Bullets)
   -- Invoke_draw_for_all(Explosions)
