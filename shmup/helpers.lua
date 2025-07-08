@@ -84,11 +84,13 @@ end
 
 function Spawn_enemy()
   if Player.wave == 2 then
-    add(Enemies, Enemy_001:new(flr(rnd(120)), rnd(1) + 0.5, 3))
+    add(Enemies, Enemy_red_guy:new(flr(rnd(120)), rnd(1) + 0.5, 3))
   elseif Player.wave == 3 then
-    add(Enemies, Enemy_002:new(flr(rnd(120)), rnd(1) + 0.5, 3))
+    add(Enemies, Enemy_fly:new(flr(rnd(120)), rnd(1) + 0.5, 3))
   elseif Player.wave == 4 then
-    add(Enemies, Enemy_003:new(flr(rnd(120)), rnd(1) + 0.5, 3))
+    add(Enemies, Enemy_spinner:new(flr(rnd(120)), rnd(1) + 0.5, 3))
+  elseif Player.wave == 5 then
+    add(Enemies, Enemy_boss:new(flr(rnd(120)), rnd(1) + 0.5, 3))
   else
     add(Enemies, Enemy:new(flr(rnd(120)), rnd(1) + 0.5, 3))
   end

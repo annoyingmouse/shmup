@@ -8,6 +8,7 @@ Particles = {}
 Shwaves = {}
 Sparkes = {}
 Button_released = false
+Animating = false
 T = 0
 
 function _init()

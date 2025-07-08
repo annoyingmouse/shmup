@@ -3,5 +3,7 @@ function Init_wave()
   Player = Player:new()
   Bullets = {}
   Particles = {}
+  Shwaves = {}
+  Sparkes = {}
   Stars = GenerateStarField(100)
 end

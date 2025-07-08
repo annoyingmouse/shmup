@@ -19,9 +19,10 @@ __lua__
 #include classes/expanding_effect.lua
 #include classes/bullet.lua
 #include classes/enemy_base.lua
-#include classes/enemy_001.lua
-#include classes/enemy_002.lua
-#include classes/enemy_003.lua
+#include classes/enemy_red_guy.lua
+#include classes/enemy_fly.lua
+#include classes/enemy_spinner.lua
+#include classes/enemy_boss.lua
 #include classes/explosion.lua
 #include classes/particle.lua
 #include classes/player.lua

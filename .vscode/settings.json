@@ -23,7 +23,8 @@
     "max",
     "min",
     "circ",
-    "sub"
+    "sub",
+    "music"
   ],
   "Lua.runtime.unicodeName": true,
   "Lua.diagnostics.disable": [

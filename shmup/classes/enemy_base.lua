@@ -32,7 +32,7 @@ end
 
 function Enemy:animate()
   if self.sprite_index < #self.sprites then
-    self.sprite_index = self.sprite_index + 0.1
+    self.sprite_index = self.sprite_index + 0.4
   else
     self.sprite_index = 1
   end

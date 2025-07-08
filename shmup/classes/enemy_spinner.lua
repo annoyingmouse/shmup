@@ -1,17 +1,15 @@
-Enemy_003 = {}
-setmetatable(Enemy_003, Enemy)
+Enemy_spinner = {}
+setmetatable(Enemy_spinner, Enemy)
 
-function Enemy_003:new(x, speed, lives)
+function Enemy_spinner:new(x, speed, lives)
   local obj = Enemy:new(x, speed, lives)
-  obj.sprites = { 224, 224, 226, 226 }
-  obj.width = 16
-  obj.height = 16
+  obj.sprites = { 200, 201, 202, 203 }
   setmetatable(obj, self)
   self.__index = self
   return obj
 end
 
-function Enemy_003:draw()
+function Enemy_spinner:draw()
   if self.flash > 0 then
     for i = 1, 15 do
       pal(i, 7)

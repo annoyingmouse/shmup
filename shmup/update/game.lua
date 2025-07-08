@@ -9,7 +9,6 @@ function Update_game()
   for bullet in all(Bullets) do
     if not bullet:update() then
       del(Bullets, bullet)
-      -- Player.score = Player.score - 2
       Player.missed_shots = Player.missed_shots + 1
     end
   end
@@ -84,14 +83,12 @@ function Update_game()
           del(Enemies, enemy)
           if #Enemies == 0 then
             Player.wave = Player.wave + 1
-            if Player.wave > 4 then
+            if Player.wave > 5 then
               Mode = "win"
             else
               Player.wave_timer = 80
               Mode = "wavetext"
             end
-            
-            -- add(Enemies, Enemy:new(flr(rnd(120)), rnd(1) + 0.5, 3))
           end
         end
         del(Bullets, bullet)
