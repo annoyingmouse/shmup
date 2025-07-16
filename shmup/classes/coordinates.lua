@@ -9,3 +9,19 @@ function Coordinates:new(x, y)
   self.__index = self
   return obj
 end
+
+function Coordinates:getX()
+  return self.x
+end
+
+function Coordinates:getY()
+  return self.y
+end
+
+function Coordinates:getWidth()
+  return self.width
+end
+
+function Coordinates:getHeight()
+  return self.height
+end

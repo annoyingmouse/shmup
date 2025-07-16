@@ -1,4 +1,19 @@
 function Update_over()
+  for particle in all(Particles) do
+    if not particle:update() then
+      del(Particles, particle)
+    end
+  end
+  for shwave in all(Shwaves) do
+    if not shwave:update() then
+      del(Shwaves, shwave)
+    end
+  end
+  for spark in all(Sparkes) do
+    if not spark:update() then
+      del(Sparkes, spark)
+    end
+  end
   if btn(4) == false and btn(5) == false then
     Button_released = true
   end

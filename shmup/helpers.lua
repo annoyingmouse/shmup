@@ -42,16 +42,16 @@ function Create_spark_storm(element)
 end
 
 function Collision(sprite1, sprite2)
-  if sprite1.x >= sprite2.x + sprite2.width then
+  if sprite1:getX() >= sprite2:getX() + sprite2:getWidth() then
     return false
   end
-  if sprite1.x + sprite1.width <= sprite2.x then
+  if sprite1:getX() + sprite1:getWidth() <= sprite2:getX() then
     return false
   end
-  if sprite1.y >= sprite2.y + sprite2.height then
+  if sprite1:getY() >= sprite2:getY() + sprite2:getHeight() then
     return false
   end
-  if sprite1.y + sprite1.height <= sprite2.y then
+  if sprite1:getY() + sprite1:getHeight() <= sprite2:getY() then
     return false
   end
   return true

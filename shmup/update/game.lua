@@ -65,7 +65,7 @@ function Update_game()
           enemy.lives = enemy.lives - 1
           enemy.flash = 5
           Player.score = Player.score + 5
-          add(Shwaves, Shwave:new(bullet.x + 4, bullet.y + 4))
+          add(Shwaves, Shwave:new(bullet:getX() + 4, bullet:getY() + 4))
           add(Sparkes, Spark:new(
             enemy.x + enemy.width / 2,
             enemy.y + enemy.height / 2,
