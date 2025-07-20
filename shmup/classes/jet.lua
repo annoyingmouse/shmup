@@ -1,10 +1,8 @@
 Jet = {}
-setmetatable(Jet, Coordinates)
+setmetatable(Jet, Dimensions)
 
 function Jet:new(x, y)
-  local obj = Coordinates:new(x, y)
-  obj.width = 8
-  obj.height = 8
+  local obj = Dimensions:new(x, y, 8, 8)
   obj.sprite_index = 1
   obj.sprites = {19, 20, 21, 22, 23}
   setmetatable(obj, self)
@@ -17,10 +15,16 @@ function Jet:update()
   if self.sprite_index > #self.sprites then
     self.sprite_index = 1
   end
-  self.x = Player.x
-  self.y = Player.y + 8
+  self:setX(Player.x)
+  self:setY(Player.y + 8)
 end
 
 function Jet:draw()
-  spr(self.sprites[flr(self.sprite_index)], self.x, self.y, flr(self.width / 8), flr(self.height / 8))
+  spr(
+    self.sprites[flr(self.sprite_index)],
+    self:getX(),
+    self:getY(),
+    flr(self:getWidth() / 8),
+    flr(self:getHeight() / 8)
+  )
 end

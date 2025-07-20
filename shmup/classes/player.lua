@@ -1,17 +1,15 @@
 Player = {}
-setmetatable(Player, Coordinates)
+setmetatable(Player, Dimensions)
 
 function Player:new()
-  local obj = Coordinates:new(64 - 8, 64 - 8)
+  local obj = Dimensions:new(56, 56, 8, 8)
   obj.sprite_index = 2
   obj.sprites = {16, 17, 18}
-  obj.width = 8
-  obj.height = 8
   obj.speed = 2
   obj.muzzle = 0
   obj.countdown = 4
   obj.invulnerable = 0
-  obj.jet = Jet:new(64 - 8, 64)
+  obj.jet = Jet:new(56, 64)
   obj.score = 0
   obj.lives = 4
   obj.wave = 1
@@ -36,26 +34,26 @@ function Player:update()
       self.muzzle = 0
     end
   end
-  self.jet.x = self.x
-  self.jet.y = self.y + 8
+  self.jet:setX(self:getX())
+  self.jet:setY(self:getY() + 8)
   if btn(0) then
-    self.x = max(self.x - self.speed, 8 - self.width)
-    self.jet.x = self.x
+    self:setX(max(self:getX() - self.speed, 8 - self:getWidth()))
+    self.jet:setX(self:getX())
     self.sprite_index = 1
   elseif btn(1) then
-    self.x = min(self.x + self.speed, 128 - self.width)
-    self.jet.x = self.x
+    self:setX(min(self:getX() + self.speed, 128 - self:getWidth()))
+    self.jet:setX(self:getX())
     self.sprite_index = 3
   else
     self.sprite_index = 2
   end
 
   if btn(2) then
-    self.y = max(self.y - self.speed, 8 - self.height)
-    self.jet.y = self.y + 8
+    self:setY(max(self:getY() - self.speed, 8 - self:getHeight()))
+    self.jet:setY(self:getY() + 8)
   elseif btn(3) then
-    self.y = min(self.y + self.speed, 128 - self.height)
-    self.jet.y = self.y + 8
+    self:setY(min(self:getY() + self.speed, 128 - self:getHeight()))
+    self.jet:setY(self:getY() + 8)
   end
 
   if btn(5) and self.countdown == 0 then
@@ -81,11 +79,27 @@ end
 
 function Player:draw()
   if self.invulnerable == 0 or sin(T / 5) < 0.1 then
-    spr(self.sprites[self.sprite_index], self.x, self.y, flr(self.width / 8), flr(self.height / 8))
+    spr(
+      self.sprites[flr(self.sprite_index)],
+      self:getX(),
+      self:getY(),
+      flr(self:getWidth() / 8),
+      flr(self:getHeight() / 8)
+    )
     Player.jet:draw()
   end
   if self.muzzle > 0 then
-    circfill(self.x + 3, self.y - 2, self.muzzle, 7)
-    circfill(self.x + 4, self.y - 2, self.muzzle, 7)
+    circfill(
+      self:getX() + 3,
+      self:getY() - 2,
+      self.muzzle,
+      7
+    )
+    circfill(
+      self:getX() + 4,
+      self:getY() - 2,
+      self.muzzle,
+      7
+    )
   end
 end

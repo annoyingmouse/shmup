@@ -2,12 +2,20 @@ Coordinates = {}
 
 function Coordinates:new(x, y)
   local obj = {
-    x = x or 0,  -- Default x coordinate
-    y = y or 0   -- Default y coordinate
+    x = x or 0,
+    y = y or 0
   }
   setmetatable(obj, Coordinates)
   self.__index = self
   return obj
+end
+
+function Coordinates:setX(x)
+  self.x = x
+end
+
+function Coordinates:setY(y)
+  self.y = y
 end
 
 function Coordinates:getX()
@@ -16,12 +24,4 @@ end
 
 function Coordinates:getY()
   return self.y
-end
-
-function Coordinates:getWidth()
-  return self.width
-end
-
-function Coordinates:getHeight()
-  return self.height
 end

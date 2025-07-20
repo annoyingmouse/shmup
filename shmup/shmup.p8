@@ -15,6 +15,9 @@ __lua__
 #include update/start.lua
 #include helpers.lua
 #include classes/coordinates.lua
+#include classes/coordinates_multiple.lua
+#include classes/dimensions.lua
+#include classes/dimensions_multiple.lua
 #include classes/star.lua
 #include classes/expanding_effect.lua
 #include classes/bullet.lua
